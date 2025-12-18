@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClipFarm | AI Viral Clip Maker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <div class="header-left">
+        <button class="icon-button" id="toggleSidebar" aria-label="Toggle projects sidebar">
+          <span class="material-icon">☰</span>
+        </button>
+      </div>
+      <div class="header-logo" id="logo">ClipFarm</div>
+      <div class="header-right">
+        <button class="icon-button" id="profileButton" aria-label="Profile">
+          <span class="material-icon">👤</span>
+        </button>
+      </div>
+    </header>
+
+    <aside class="projects-sidebar" id="projectsSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Projects</div>
+        <button class="pill-button" id="newProject">New</button>
+      </div>
+      <div id="projectsList" class="projects-list"></div>
+    </aside>
+
+    <main class="app-main">
+      <section id="mainPage" class="page active">
+        <div class="phase-grid">
+          <div class="phase" data-phase="upload">
+            <div class="phase-label">Upload Phase</div>
+            <div class="phase-body" id="uploadPhase">
+              <p class="phase-helper">Drop or select a video to begin.</p>
+              <label class="upload-drop" for="fileInput">
+                <input type="file" id="fileInput" accept="video/*" hidden />
+                <div class="upload-icon">⤴</div>
+                <div class="upload-text">Click to upload</div>
+              </label>
+            </div>
+          </div>
+
+          <div class="phase" data-phase="confirmation">
+            <div class="phase-label">Confirmation Phase</div>
+            <div class="phase-body" id="confirmationPhase">
+              <p class="phase-helper">Review the video before processing.</p>
+              <video id="previewVideo" controls class="preview" hidden></video>
+              <div class="phase-actions">
+                <button class="pill-button" id="confirmVideo" disabled>Confirm</button>
+                <button class="ghost-button" id="resetVideo" disabled>Reset</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase" data-phase="loading">
+            <div class="phase-label">Loading Phase</div>
+            <div class="phase-body" id="loadingPhase">
+              <p class="phase-helper">Processing clips with AI magic.</p>
+              <div class="loading-ring">
+                <div class="ring"></div>
+                <div class="ring trail"></div>
+              </div>
+              <div class="processing-status" id="processingStatus">Waiting for confirmation...</div>
+            </div>
+          </div>
+
+          <div class="phase" data-phase="viewing">
+            <div class="phase-label">Viewing Phase</div>
+            <div class="phase-body" id="viewingPhase">
+              <p class="phase-helper">AI-selected highlights appear here.</p>
+              <div class="clips-grid" id="clipsGrid"></div>
+              <div class="phase-actions">
+                <button class="pill-button" id="saveProject" disabled>Save Project</button>
+                <button class="ghost-button" id="exportClips" disabled>Export</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projectsPage" class="page">
+        <div class="page-header">
+          <h2>Project Bank</h2>
+          <p>Centralized view of every processed upload.</p>
+        </div>
+        <div id="projectBank" class="projects-grid"></div>
+      </section>
+
+      <section id="profilePage" class="page">
+        <div class="page-header">
+          <h2>User Profile</h2>
+          <p>Link socials and tune your creative signature.</p>
+        </div>
+        <div class="profile-card">
+          <div class="avatar">👾</div>
+          <div class="profile-details">
+            <h3>Neon Creator</h3>
+            <p>Obsessed with viral edits and impossible transitions.</p>
+            <div class="links">
+              <a href="#" class="pill-button ghost">Connect TikTok</a>
+              <a href="#" class="pill-button ghost">Connect Instagram</a>
+              <a href="#" class="pill-button ghost">Connect YouTube</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div>ClipFarm — build viral clips with AI precision.</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Support</a>
+        <a href="#">Status</a>
+      </div>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
